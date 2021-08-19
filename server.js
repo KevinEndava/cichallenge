@@ -1,6 +1,6 @@
 // 'use strict';
 
-const express = require('./app.js');
+const app = require('./app.js');
 
 // Constants
 const PORT = 8000;
