@@ -3,31 +3,18 @@
   "version": "1.0.0",
   "description": "Node.js on Docker",
   "author": "First Last <first.last@example.com>",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "jest"
-
+    "test": "mocha --spec ./test/*.js --reporter mochawesome",
+    "coverage": "nyc --reporter html --reporter-options reportDir=reports/coverage mocha --reporter mochawesome"
   },
   "dependencies": {
-    "esm": "^3.2.25",
     "express": "^4.16.1",
-    "supertest": "^=6.1.5",
     "test": ">=0.0.5"
   },
   "devDependencies": {
-    "jest": "^27.0.6",
-    "jest-html-reporter": "^3.4.1",
-    "jest-html-reporters": "^2.1.6"
-  },
-  "jest": {
-    "verbose": true,
-    "collectCoverage": true,
-    "coverageReporters": [ 
-      "lcov"
-    ],
-    "coverageDirectory": "./output/code-coverage/",
-    "reporters": ["./node_modules/jest-html-reporter"]
+    "mochawesome": "^6.2.2",
+    "nyc": "^15.1.0"
   }
-
 }
